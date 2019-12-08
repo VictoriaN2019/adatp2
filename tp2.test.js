@@ -44,6 +44,8 @@ test ("buscar una vendedora que no tiene ventas realizadas", () => {
 /* FUNCIÓN 4 */
 
 test ('Debe devolver componente más vendido', () => {
+
+    //Cambiar por el resultado pedido en la funcion
     expect(componenteMasVendido()).toMatch("El componente mas vendido fue: Monitor GPRS 3000")
 });
 

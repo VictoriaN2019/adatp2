@@ -1,3 +1,6 @@
+/**
+ * Falta hacer npm init y configurar el script test con jest.
+ */
 const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
 
 const ventas = [
@@ -57,8 +60,10 @@ const cantidadVentasComponente = (componente) => {
 const ventasVendedora = (nombre) => {
      let contador = 0;
      for (let i = 0; i < ventas.length; i++) {
-         if (ventas[i][4] == nombre) {                               
-             for (let x = 0; x < ventas.length; x++)                 
+         if (ventas[i][4] == nombre) {               
+             // Faltan las llaves pero no entiendo por que estamos loopeando por segunda vez por cada venta.
+             // En todo caso tendria que hacer "ventas[i][6].length" para loopear por cada componente vendido            
+             for (let x = 0; x < ventas.length; x++)                  
                  for (let y = 0; y < precios.length; y++) {
                      if (precios[y][0] == ventas[i][6][x]) {
                          contador += precios[y][1];
@@ -81,6 +86,7 @@ const componenteMasVendido = () => {
             componenteMasVendido = precio[0] 
         }
     }
+    //Debe devolver solo el nombre, no todo el texto
     return `El componente mas vendido fue: ${componenteMasVendido}`;
 }
 
@@ -91,7 +97,8 @@ const ventasSucursal = (sucursal) => {
      let contador = 0;
      for (let i = 0; i < ventas.length; i++) {
          if (ventas[i][5] == sucursal) {
-             for (let x = 0; x < ventas.length; x++)
+             // Aca de nuevo deberia ser ventas[i][6].length
+             for (let x = 0; x < ventas[i][6].length; x++)
                  for (let y = 0; y < precios.length; y++) {
                      if (precios[y][0] == ventas[i][6][x]) {
                          contador += precios[y][1]
@@ -122,18 +129,22 @@ const mejorVendedora = () => {
 const ventaPromedio=()=> {
     let suma = 0;
     for (let i = 0; i<ventas.length; i++) {
+        // suma += precioMaquina(...)
        suma = suma + precioMaquina(ventas[i][6]);
     } 
     return  Math.floor(suma / ventas.length)
 }
+// borrar console log
 console.log(ventaPromedio()); 
 
 /* FUNCIÓN 8 */
 
+// La funcion devuelve un NaN. Deberia ser Math.floor(Math.random() * (999999999-100000000)+100000000)
 const obtenerIdVenta=()=>{
     let id=Math.floor(Math.random) * (999999999-100000000)+100000000 // math.random es para que tire un numero random , entonces porngo lo limites minimo, maximo y minimo
     return id  
 }
+// borrar console log
 console.log(obtenerIdVenta());
 
 /* FUNCIÓN 9 */
